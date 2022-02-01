@@ -2,8 +2,8 @@
 importScripts('js/sw-utils.js');
 
 // Declarar constantes para caché
-const STATIC_CACHE = 'static-v7';
-const DYNAMIC_CACHE = 'dynamic-v1';
+const STATIC_CACHE = 'static-v8';
+const DYNAMIC_CACHE = 'dynamic-v2';
 const INMUTABLE_CACHE = 'inmutable-v1';
 
 // Core de la aplicación
@@ -47,6 +47,10 @@ self.addEventListener('activate', e => {
     const resp = caches.keys().then(keys => {
         keys.forEach(key => {
             if (key !== STATIC_CACHE && key.includes('static')) {
+                return caches.delete(key);
+            }
+
+            if (key !== DYNAMIC_CACHE && key.includes('dynamic')) {
                 return caches.delete(key);
             }
         });
