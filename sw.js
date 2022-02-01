@@ -2,7 +2,7 @@
 importScripts('js/sw-utils.js');
 
 // Declarar constantes para caché
-const STATIC_CACHE = 'static-v4';
+const STATIC_CACHE = 'static-v5';
 const DYNAMIC_CACHE = 'dynamic-v1';
 const INMUTABLE_CACHE = 'inmutable-v1';
 
