@@ -329,6 +329,12 @@ function verificaSuscripcion(activadas) {
 
     console.log('Activadas:', activadas);
 
+    $.mdtoast('Status' + activadas, {
+        interaction: true,
+        interactionTimeout: 5000,
+        actionText: 'OK!'
+    });
+
     if (activadas) {
 
         btnActivadas.removeClass('oculto');
