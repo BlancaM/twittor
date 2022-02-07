@@ -11,14 +11,35 @@
     font-size: 16px;
     background-color: #dde1e2; 
     width: 100%;
-    /* Deshabilitar selección, highlighting and callouts */
-    overscroll-behavior-y: contain; /*Quitar scroll*/
+
+
+    overscroll-behavior-y: contain;
     -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
 }
 
+
 /* Personalizados */
+button {
+  width: 80%;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+}
+
+.btn-noti-activadas {
+  background-color: #3498db;
+}
+
+.btn-noti-desactivadas {
+  background-color: red;
+}
+
+
+
 .oculto {
   display: none !important;
 }
@@ -44,6 +65,31 @@
   position: relative; 
 }
 
+/* Camera */
+.camara-contenedor {
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 5px solid white;
+}
+
+.camara-contenedor button {
+  background-color: #3498db;
+  color: white;
+}
+
+#fotoTemp {
+  width: 300px;
+  height: 300px;
+  display: none;
+}
+
+.foto-mensaje {
+  width: 150px;
+  height: 150px;
+}
+
 /* Modal */
 #modal { 
   position: fixed;
@@ -55,7 +101,14 @@
   opacity: 0;
 }
 
-
+.modal-mapa {
+  margin-top: 10px;
+  width: 100%;
+  border: 5px solid white;
+  /* outline: 5px solid white; */
+  border-radius: 5px;
+  overflow: hidden;
+}
 
 #modal-avatar {
   width: 50px;
@@ -158,7 +211,7 @@ textarea {
   font-size: 20px;
   color: white;
   text-align: center;
-  line-height: 55px;
+  line-height: 50px;
 
   position: fixed;
   left: 80px;
