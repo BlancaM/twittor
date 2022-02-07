@@ -5,7 +5,7 @@ importScripts('js/sw-db.js');
 importScripts('js/sw-utils.js');
 
 
-const STATIC_CACHE    = 'static-v4';
+const STATIC_CACHE    = 'static-v5';
 const DYNAMIC_CACHE   = 'dynamic-v1';
 const INMUTABLE_CACHE = 'inmutable-v1';
 
@@ -142,18 +142,18 @@ self.addEventListener('push', e => {
     // console.log(data);
 
 
-    const title = data.titulo;
+    const title = 'Nuevo mensaje - Twittor!';
     const options = {
-        body: data.cuerpo,
+        body: data.mensaje,
         // icon: 'img/icons/icon-72x72.png',
-        icon: `img/avatars/${ data.usuario }.jpg`,
+        icon: `img/avatars/${ data.user }.jpg`,
         badge: 'img/favicon.ico',
         image: 'https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/5/5b/Torre_de_los_Avengers.png/revision/latest?cb=20150626220613&path-prefix=es',
         vibrate: [125,75,125,275,200,275,125,75,125,275,200,600,200,600],
         openUrl: '/',
         data: {
             // url: 'https://google.com',
-            url: '/',
+            url: 'https://blancam.github.io/twittor/',
             id: data.usuario
         },
         actions: [
