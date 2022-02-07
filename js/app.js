@@ -375,8 +375,14 @@ function enviarNotificacion() {
 
 function notificarme() {
 
+    //---check if push notification is supported or not---
     if (!window.Notification) {
         console.log('Este navegador no soporta notificaciones');
+        $.mdtoast('Este navegador no soporta notificaciones', {
+            interaction: true,
+            interactionTimeout: 5000,
+            actionText: 'OK!'
+        });
         return;
     }
 
