@@ -11,7 +11,6 @@ if (navigator.serviceWorker) {
         swLocation = '/sw.js';
     }
 
-
     window.addEventListener('load', function () {
 
         navigator.serviceWorker.register(swLocation).then(function (reg) {
@@ -552,7 +551,21 @@ btnPhoto.on('click', () => {
 btnPushNotifications.on('click', () => {
 
     console.log('Boton Activar Notificaciones iOS');
-    
+
+    if ('PushManager' in window) {
+        $.mdtoast('Push Notifications is supported', {
+            interaction: true,
+            interactionTimeout: 5000,
+            actionText: 'OK!'
+        });
+    } else {
+        $.mdtoast('Error: Push Notifications is NOT supported', {
+            interaction: true,
+            interactionTimeout: 5000,
+            actionText: 'OK!'
+        });
+    }
+
 });
 
 // Boton para tomar la foto
