@@ -16,10 +16,11 @@ if (navigator.serviceWorker) {
 
         navigator.serviceWorker.register(swLocation).then(function (reg) {
 
+            console.log('Load...');
             swReg = reg;
             $.mdtoast('Register SW', {
                 interaction: true,
-                interactionTimeout: 5000,
+                interactionTimeout: 10000,
                 actionText: 'OK!'
             });
             swReg.pushManager.getSubscription().then(verificaSuscripcion)
@@ -341,7 +342,7 @@ function verificaSuscripcion(activadas) {
 
     console.log('Activadas:', activadas);
 
-    $.mdtoast('Status' + activadas, {
+    $.mdtoast('Status: ' + activadas, {
         interaction: true,
         interactionTimeout: 5000,
         actionText: 'OK!'
