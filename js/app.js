@@ -17,14 +17,19 @@ if (navigator.serviceWorker) {
         navigator.serviceWorker.register(swLocation).then(function (reg) {
 
             swReg = reg;
-            swReg.pushManager.getSubscription().then(verificaSuscripcion)
-            .catch(err => {
-                $.mdtoast('Error', {
-                    interaction: true,
-                    interactionTimeout: 5000,
-                    actionText: 'OK!'
-                });
+            $.mdtoast('Register SW', {
+                interaction: true,
+                interactionTimeout: 5000,
+                actionText: 'OK!'
             });
+            swReg.pushManager.getSubscription().then(verificaSuscripcion)
+                .catch(err => {
+                    $.mdtoast('Error', {
+                        interaction: true,
+                        interactionTimeout: 5000,
+                        actionText: 'OK!'
+                    });
+                });
 
         });
 
@@ -374,7 +379,7 @@ function enviarNotificacion() {
 
 
 function notificarme() {
-
+    console.log('Notificarme');
     //---check if push notification is supported or not---
     if (!window.Notification) {
         console.log('Este navegador no soporta notificaciones');
@@ -388,7 +393,7 @@ function notificarme() {
 
     if (Notification.permission === 'granted') {
 
-        // new Notification('Hola Mundo! - granted');
+        new Notification('Permisos para envío de notificaciones Autorizado');
         enviarNotificacion();
 
     } else if (Notification.permission !== 'denied' || Notification.permission === 'default') {
@@ -398,7 +403,7 @@ function notificarme() {
             console.log(permission);
 
             if (permission === 'granted') {
-                // new Notification('Hola Mundo! - pregunta');
+                new Notification('Notificaciones Habilitadas!');
                 enviarNotificacion();
             }
 
