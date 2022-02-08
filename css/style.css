@@ -221,7 +221,7 @@ textarea {
 .fab-push {
   width: 50px;
   height: 50px;
-  background-color: #1af0c1;
+  background-color: #30ccaa;
   border-radius: 50%;
   box-shadow: 0 2px 6px 0 #666;
   transition: all 0.1s ease-in-out;
@@ -232,7 +232,7 @@ textarea {
   line-height: 50px;
 
   position: fixed;
-  left: 80px;
+  left: 150px;
   bottom: 50px;
 }
 
