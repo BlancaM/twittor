@@ -80,6 +80,7 @@ var modalMapa = $('.modal-mapa');
 
 var btnTomarFoto = $('#tomar-foto-btn');
 var btnPhoto = $('#photo-btn');
+var btnPushNotifications = $('#push-btn');
 var contenedorCamara = $('.camara-contenedor');
 
 var lat = null;
@@ -547,6 +548,12 @@ btnPhoto.on('click', () => {
 
 });
 
+// Botón habilitar Notificaciones iOS
+btnPushNotifications.on('click', () => {
+
+    console.log('Boton Activar Notificaciones iOS');
+    
+});
 
 // Boton para tomar la foto
 btnTomarFoto.on('click', () => {
