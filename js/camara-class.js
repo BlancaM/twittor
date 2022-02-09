@@ -2,7 +2,7 @@
 
 class Camara {
 
-    constructor( videoNode ) {
+    constructor(videoNode) {
 
         this.videoNode = videoNode;
         console.log('Camara Class init');
@@ -10,30 +10,25 @@ class Camara {
 
 
     encender() {
-
         navigator.mediaDevices.getUserMedia({
             audio: false,
-            video: { width: 300, height: 300 }
-        }).then( stream => {
-
+            video: {
+                width: 300,
+                height: 300,
+                facingMode: 'environment'
+            }
+        }).then(stream => {
             this.videoNode.srcObject = stream;
             this.stream = stream;
-
         });
-
     }
 
 
     apagar() {
-
-
         this.videoNode.pause();
-
-        if ( this.stream ) {
+        if (this.stream) {
             this.stream.getTracks()[0].stop();
         }
-
-
     }
 
 
@@ -44,20 +39,19 @@ class Camara {
 
 
         // Colocar las dimensiones igual al elemento del video
-        canvas.setAttribute('width', 300 );
-        canvas.setAttribute('height', 300 );
+        canvas.setAttribute('width', 300);
+        canvas.setAttribute('height', 300);
 
         // obtener el contexto del canvas
         let context = canvas.getContext('2d'); // una simple imagen
 
         // dibujar, la imagen dentro del canvas
-        context.drawImage( this.videoNode, 0, 0, canvas.width, canvas.height );
-
+        context.drawImage(this.videoNode, 0, 0, canvas.width, canvas.height);
 
         this.foto = context.canvas.toDataURL();
 
         // limpieza
-        canvas  = null;
+        canvas = null;
         context = null;
 
         return this.foto;
